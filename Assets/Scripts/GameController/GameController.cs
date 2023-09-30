@@ -38,7 +38,7 @@ namespace Assets.Scripts.GameController
             collectables = GameObject.FindGameObjectsWithTag("collectable").ToList();
 
             // Only process on move at a time.
-            if (!playerController.isMoving)
+            if (!playerController.isMoving && !collectables[0].GetComponent<CollectableController>().isMoving)
             {
                 // Accomodate two different types of moving.
                 System.Func<KeyCode, bool> inputFunction;
