@@ -6,44 +6,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveDuration = 0.3f;
 
-    // The size of the grid
-    [SerializeField] private float gridSize = 1f;
+    public bool isMoving = false;
 
-    private bool isMoving = false;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        // Only process on move at a time.
-        if (!isMoving)
-        {
-            // Accomodate two different types of moving.
-            System.Func<KeyCode, bool> inputFunction;
-            // GetKeyDown fires once per keypress
-            inputFunction = Input.GetKeyDown;
-            // If the input function is active, move in the appropriate direction.
-            // if (inputFunction(KeyCode.UpArrow))
-            // {
-            //     StartCoroutine(Move(Vector2.up));
-            // }
-            // else if (inputFunction(KeyCode.DownArrow))
-            // {
-            //     StartCoroutine(Move(Vector2.down));
-            // }
-            if (inputFunction(KeyCode.LeftArrow))
-            {
-                StartCoroutine(Move(Vector2.left));
-            }
-            else if (inputFunction(KeyCode.RightArrow))
-            {
-                StartCoroutine(Move(Vector2.right));
-            }
-        }
-    }
-
-    private IEnumerator Move(Vector2 direction)
+    public IEnumerator Move(Vector2 direction, float moveDuration, float gridSize)
     {
         // Record that we're moving so we don't accept more input.
         isMoving = true;
