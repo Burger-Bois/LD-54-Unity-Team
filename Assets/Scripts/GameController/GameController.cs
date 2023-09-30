@@ -49,17 +49,8 @@ namespace Assets.Scripts.GameController
                 // GetKeyDown fires once per keypress
                 inputFunction = Input.GetKeyDown;
                 // If the input function is active, move in the appropriate direction.
-                if (inputFunction(KeyCode.UpArrow))
-                {
-                    MoveCollectables();
-                    spawnManager.Spawn();
-                }
-                else if (inputFunction(KeyCode.DownArrow))
-                {
-                    MoveCollectables();
-                    spawnManager.Spawn();
-                }
-                else if (inputFunction(KeyCode.LeftArrow))
+                
+                if (inputFunction(KeyCode.LeftArrow))
                 {
                     MoveCollectables();
                     StartCoroutine(playerController.Move(Vector2.left, moveDuration, gridSize));

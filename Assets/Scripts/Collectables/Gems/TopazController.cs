@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class RubyController : CollectableController
+public class TopazController : CollectableController
 {
     private void Awake()
     {
-        value = 25;
+        value = 1;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider)

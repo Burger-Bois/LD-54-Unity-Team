@@ -8,7 +8,7 @@ public class RockController : CollectableController
 {
     private void Awake()
     {
-        value = -5;
+        value = -15;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider)

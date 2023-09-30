@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
         spawnPoint10,
         spawnPoint11;
 
-    [SerializeField] private GameObject rock, ruby;
+    [SerializeField] private GameObject rock, ruby, emerald, amethyst, diamond, topaz;
 
     private List<SpawnPoint> spawnPoints = new ();
     private List<GameObject> spawnableObjects = new();
@@ -41,7 +41,12 @@ public class SpawnManager : MonoBehaviour
         spawnPoints.Add(spawnPoint11);
         
         spawnableObjects.Add(rock);
+        spawnableObjects.Add(topaz);
+        spawnableObjects.Add(amethyst);
+        spawnableObjects.Add(emerald);
         spawnableObjects.Add(ruby);
+        spawnableObjects.Add(diamond);
+        
     }
 
     private void Start()
@@ -53,12 +58,49 @@ public class SpawnManager : MonoBehaviour
     {
         Random rand = new Random();
 
-        var spawnPos = spawnPoints[rand.Next(0, 10)].transform.position;
+        var spawnPosInital = new Vector3(0, 0, 0);
 
-        var itemToSpawn = spawnableObjects[rand.Next(0, spawnableObjects.Count)];
+        for (int i = 0; i <= 1; i++)
+        {
+            var spawnPos = spawnPoints[rand.Next(0, 10)].transform.position;
+
+            if (spawnPos == spawnPosInital)
+            {
+                break;
+            }
+
+            spawnPosInital = spawnPos;
         
-        itemToSpawn.transform.position = spawnPos;
+            var itemToSpawn = GetItemToSpawn(rand.Next(0, 1000));
+        
+            itemToSpawn.transform.position = spawnPos;
 
-        Instantiate(itemToSpawn);
+            Instantiate(itemToSpawn);
+        }
+    }
+
+    private GameObject GetItemToSpawn(int number)
+    {
+        if (number <= 650)
+        {
+            return spawnableObjects[0];
+        }
+        if (number <= 800)
+        {
+            return spawnableObjects[1];
+        }
+        if (number <= 875)
+        {
+            return spawnableObjects[2];
+        }
+        if (number <= 925)
+        {
+            return spawnableObjects[3];
+        }
+        if (number <= 970)
+        {
+            return spawnableObjects[4];
+        }
+        return spawnableObjects[5];
     }
 }

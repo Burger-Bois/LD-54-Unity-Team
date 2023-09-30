@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8385943631051933573}
   - component: {fileID: 8437628868428858784}
   - component: {fileID: 3098625491189697917}
-  - component: {fileID: 4576768283992148141}
+  - component: {fileID: 8423405406863443421}
   m_Layer: 0
-  m_Name: Ruby
+  m_Name: Topaz
   m_TagString: collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2025041951997653469}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.750744, y: 5.669652, z: 0}
+  m_LocalPosition: {x: -19.740744, y: 5.669652, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1928752755, guid: ff1e575fc85cc4144a7a51a3d687dbb8, type: 3}
+  m_Sprite: {fileID: -1660206232, guid: ff1e575fc85cc4144a7a51a3d687dbb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,7 +167,7 @@ PolygonCollider2D:
       - {x: 0.05604382, y: -0.05394236}
       - {x: 0.06101328, y: 0.0029728888}
   m_UseDelaunayMesh: 0
---- !u!114 &4576768283992148141
+--- !u!114 &8423405406863443421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025041951997653469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef884199ce14f6987e2502a3f7a8200, type: 3}
+  m_Script: {fileID: 11500000, guid: 61d839b72a079dc4b821fd351121527e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
