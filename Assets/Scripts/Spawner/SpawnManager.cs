@@ -42,6 +42,11 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        Spawn();
+    }
+
+    public void Spawn()
+    {
         
         Random rand = new Random();
 

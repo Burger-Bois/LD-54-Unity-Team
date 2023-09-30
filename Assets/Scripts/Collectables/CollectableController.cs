@@ -30,4 +30,14 @@ public class CollectableController : MonoBehaviour
 
         isMoving = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.name.Equals("Despawner")) 
+        {
+            Destroy(this.gameObject);
+
+        }
+    }
+
 }
