@@ -47,8 +47,6 @@ public class InventoryUI : MonoBehaviour
 
     public void StoreItem(CollectableController item)
     {
-        Random rand = new Random();
-
         item.transform.localScale = new Vector3(3, 3, 3);
         
         foreach (var slot in invSlots)
