@@ -42,6 +42,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        
         Random rand = new Random();
 
         var spawnPos = spawnPoints[rand.Next(0, 10)].transform.position;
