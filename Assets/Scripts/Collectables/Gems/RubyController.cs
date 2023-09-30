@@ -1,14 +1,16 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GemController : CollectableController
+public class RubyController : CollectableController
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    public int value = 1;
-    
+    private void Awake()
+    {
+        value = 5;
+    }
+
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         base.OnTriggerEnter2D(collider);

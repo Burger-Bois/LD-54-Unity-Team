@@ -21,9 +21,10 @@ public class SpawnManager : MonoBehaviour
         spawnPoint10,
         spawnPoint11;
 
-    [SerializeField] private GameObject gem;
+    [SerializeField] private GameObject rock, ruby;
 
     private List<SpawnPoint> spawnPoints = new ();
+    private List<GameObject> spawnableObjects = new();
 
     private void Awake()
     {
@@ -38,6 +39,9 @@ public class SpawnManager : MonoBehaviour
         spawnPoints.Add(spawnPoint9);
         spawnPoints.Add(spawnPoint10);
         spawnPoints.Add(spawnPoint11);
+        
+        spawnableObjects.Add(rock);
+        spawnableObjects.Add(ruby);
     }
 
     private void Start()
@@ -47,12 +51,14 @@ public class SpawnManager : MonoBehaviour
 
     public void Spawn()
     {
-        
         Random rand = new Random();
 
         var spawnPos = spawnPoints[rand.Next(0, 10)].transform.position;
-        gem.transform.position = spawnPos;
 
-        Instantiate(gem);
+        var itemToSpawn = spawnableObjects[rand.Next(0, spawnableObjects.Count)];
+        
+        itemToSpawn.transform.position = spawnPos;
+
+        Instantiate(itemToSpawn);
     }
 }
