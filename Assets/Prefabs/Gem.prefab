@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8385943631051933573}
   - component: {fileID: 8437628868428858784}
   - component: {fileID: 3098625491189697917}
+  - component: {fileID: 3793066821192475310}
   m_Layer: 0
   m_Name: Gem
-  m_TagString: Untagged
+  m_TagString: collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2025041951997653469}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.70810294, w: 0.7061092}
-  m_LocalPosition: {x: -6.210743, y: 5.6996517, z: 0}
+  m_LocalPosition: {x: 5.769257, y: 5.7196517, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -162,3 +163,15 @@ PolygonCollider2D:
       - {x: 0, y: -0.25}
       - {x: 0.5, y: 0}
   m_UseDelaunayMesh: 0
+--- !u!114 &3793066821192475310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025041951997653469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10eb578a6034317458066e896ae967d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
