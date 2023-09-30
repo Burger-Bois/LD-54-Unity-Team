@@ -11,7 +11,7 @@ public class InventoryController : MonoBehaviour
     private int score = 0;
    
     public bool isFull = false;
-    
+    public GameOverScreen gameOverScreen;
 
     private void Awake()
     {
@@ -24,9 +24,17 @@ public class InventoryController : MonoBehaviour
         UI.StoreItem(item);
         score += item.gameObject.GetComponent<CollectableController>().value;
 
-        if (inventory.Count == inventory.Capacity - 1)
+        if (inventory.Count == inventory.Capacity)
         {
             isFull = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (isFull)
+        {
+            gameOverScreen.Setup(GetScore());
         }
     }
 
