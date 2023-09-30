@@ -18,6 +18,7 @@ namespace Assets.Scripts.GameController
 
         private GameObject player;
         private PlayerController playerController;
+        private List<GameObject> collectables;
 
 
         private void Start()
@@ -30,6 +31,9 @@ namespace Assets.Scripts.GameController
         // Update is called once per frame
         private void Update()
         {
+
+            collectables = GameObject.FindGameObjectsWithTag("collectable").ToList();
+
             // Only process on move at a time.
             if (!playerController.isMoving)
             {
@@ -38,22 +42,34 @@ namespace Assets.Scripts.GameController
                 // GetKeyDown fires once per keypress
                 inputFunction = Input.GetKeyDown;
                 // If the input function is active, move in the appropriate direction.
-                // if (inputFunction(KeyCode.UpArrow))
-                // {
-                //     StartCoroutine(Move(Vector2.up));
-                // }
-                // else if (inputFunction(KeyCode.DownArrow))
-                // {
-                //     StartCoroutine(Move(Vector2.down));
-                // }
-                if (inputFunction(KeyCode.LeftArrow))
+                if (inputFunction(KeyCode.UpArrow))
                 {
+                    MoveCollectables();
+                }
+                else if (inputFunction(KeyCode.DownArrow))
+                {
+                    MoveCollectables();
+                }
+                else if (inputFunction(KeyCode.LeftArrow))
+                {
+                    MoveCollectables();
                     StartCoroutine(playerController.Move(Vector2.left, moveDuration, gridSize));
                 }
                 else if (inputFunction(KeyCode.RightArrow))
                 {
+                    MoveCollectables();
                     StartCoroutine(playerController.Move(Vector2.right, moveDuration, gridSize));
                 }
+            }
+        }
+
+
+        private void MoveCollectables()
+        {
+           
+            foreach (GameObject collectable in collectables)
+            {
+                StartCoroutine(collectable.GetComponent<CollectableController>().Move(moveDuration, gridSize));
             }
         }
 
