@@ -5,8 +5,11 @@ using UnityEngine;
 public class CollectableController : MonoBehaviour
 {
 
+    public bool isMoving = false;
+
     public IEnumerator Move(float moveDuration, float gridSize)
-    { 
+    {
+        isMoving = true;
 
         // Make a note of where we are and where we are going.
         Vector2 startPosition = transform.position;
@@ -25,5 +28,6 @@ public class CollectableController : MonoBehaviour
         // Make sure we end up exactly where we want.
         transform.position = endPosition;
 
+        isMoving = false;
     }
 }
