@@ -22,6 +22,10 @@ namespace Assets.Scripts.GameController
         private List<GameObject> collectables;
 
 
+        private void Awake()
+        {
+            Time.timeScale = 1;
+        }
 
         private void Start()
         {
