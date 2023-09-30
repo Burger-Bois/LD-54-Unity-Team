@@ -18,13 +18,16 @@ namespace Assets.Scripts.GameController
 
         private GameObject player;
         private PlayerController playerController;
+        private SpawnManager spawnManager;
         private List<GameObject> collectables;
+
 
 
         private void Start()
         {
             player = GameObject.Find("Player");
             playerController = player.GetComponent<PlayerController>();
+            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         }
 
 
@@ -45,20 +48,24 @@ namespace Assets.Scripts.GameController
                 if (inputFunction(KeyCode.UpArrow))
                 {
                     MoveCollectables();
+                    spawnManager.Spawn();
                 }
                 else if (inputFunction(KeyCode.DownArrow))
                 {
                     MoveCollectables();
+                    spawnManager.Spawn();
                 }
                 else if (inputFunction(KeyCode.LeftArrow))
                 {
                     MoveCollectables();
                     StartCoroutine(playerController.Move(Vector2.left, moveDuration, gridSize));
+                    spawnManager.Spawn();
                 }
                 else if (inputFunction(KeyCode.RightArrow))
                 {
                     MoveCollectables();
                     StartCoroutine(playerController.Move(Vector2.right, moveDuration, gridSize));
+                    spawnManager.Spawn();
                 }
             }
         }
