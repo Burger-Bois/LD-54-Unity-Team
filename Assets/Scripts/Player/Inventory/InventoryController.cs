@@ -22,14 +22,12 @@ public class InventoryController : MonoBehaviour
     {
         inventory.Add(item);
         UI.StoreItem(item);
-        score += item.gameObject.GetComponent<GemController>().value;
+        score += item.gameObject.GetComponent<CollectableController>().value;
 
         if (inventory.Count == inventory.Capacity - 1)
         {
             isFull = true;
         }
-        
-        Debug.Log(score);
     }
 
     public int GetScore()
