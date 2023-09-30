@@ -57,8 +57,9 @@ public class InventoryUI : MonoBehaviour
             {
                 item.transform.position = slot.transform.position;
                 slot.hasItem = true;
-            }
-            break;
+                break;
+            } 
+            
         }
     }
 }
