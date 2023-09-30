@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using Random = System.Random;
 
 public class InventoryUI : MonoBehaviour
@@ -48,6 +49,7 @@ public class InventoryUI : MonoBehaviour
     public void StoreItem(CollectableController item)
     {
         item.transform.localScale = new Vector3(3, 3, 3);
+        item.GetComponent<SpriteRenderer>().sortingOrder = 7;
         
         foreach (var slot in invSlots)
         {
