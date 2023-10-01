@@ -19,6 +19,7 @@ public class RubyController : CollectableController
         {
             collider.gameObject.GetComponentInChildren<InventoryController>().AddItem(this);
             isCollected = true;
+            gameObject.GetComponent<AudioSource>().Play();
         }
     }
 }

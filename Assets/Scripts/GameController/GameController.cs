@@ -20,6 +20,7 @@ namespace Assets.Scripts.GameController
         private PlayerController playerController;
         private SpawnManager spawnManager;
         private List<GameObject> collectables;
+        private int charPos = 6;
 
 
         private void Awake()
@@ -52,15 +53,23 @@ namespace Assets.Scripts.GameController
                 
                 if (inputFunction(KeyCode.LeftArrow))
                 {
-                    MoveCollectables();
-                    StartCoroutine(playerController.Move(Vector2.left, moveDuration, gridSize));
-                    spawnManager.Spawn();
+                    if (charPos > 1)
+                    {
+                        MoveCollectables();
+                        StartCoroutine(playerController.Move(Vector2.left, moveDuration, gridSize));
+                        spawnManager.Spawn();
+                        charPos--;
+                    }
                 }
                 else if (inputFunction(KeyCode.RightArrow))
                 {
+                    if (charPos < 11)
+                    {
                     MoveCollectables();
                     StartCoroutine(playerController.Move(Vector2.right, moveDuration, gridSize));
                     spawnManager.Spawn();
+                    charPos++;
+                    }
                 }
             }
         }

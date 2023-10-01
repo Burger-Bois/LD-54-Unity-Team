@@ -62,7 +62,7 @@ public class SpawnManager : MonoBehaviour
 
         for (int i = 0; i <= 1; i++)
         {
-            var spawnPos = spawnPoints[rand.Next(0, 10)].transform.position;
+            var spawnPos = spawnPoints[rand.Next(0, 11)].transform.position;
 
             if (spawnPos == spawnPosInital)
             {
