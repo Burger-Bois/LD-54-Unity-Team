@@ -14,7 +14,7 @@ public class CollectableController : MonoBehaviour
 
         // Make a note of where we are and where we are going.
         Vector2 startPosition = transform.position;
-        Vector2 endPosition = startPosition + (Vector2.down * gridSize);
+        Vector2 endPosition = startPosition + (Vector2.up * gridSize);
 
 
         // Smoothly move in the desired direction taking the required time.
