@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollectableController : MonoBehaviour
 {
+    [SerializeField] public Sprite collectedSprite;
+    
     public bool isMoving = false;
     public bool isCollected = false;
     public int value = 0;

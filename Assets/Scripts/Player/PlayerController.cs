@@ -8,11 +8,15 @@ public class PlayerController : MonoBehaviour
 {
     public bool isMoving = false;
 
+    private Animator animator;
+
 
     public IEnumerator Move(Vector2 direction, float moveDuration, float gridSize)
     {
+        animator = GetComponent<Animator>();
         // Record that we're moving so we don't accept more input.
         isMoving = true;
+        animator.SetBool("isMoving", true);
 
         // Make a note of where we are and where we are going.
         Vector2 startPosition = transform.position;
@@ -33,5 +37,6 @@ public class PlayerController : MonoBehaviour
 
         // We're no longer moving so we can accept another move input.
         isMoving = false;
+        animator.SetBool("isMoving", false);
     }
 }
