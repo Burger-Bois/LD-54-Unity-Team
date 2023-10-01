@@ -16,9 +16,4 @@ public class GameOverScreen : MonoBehaviour
                          $" points";
         Time.timeScale = 0;
     }
-
-    public void RestartButton()
-    {
-        SceneManager.LoadScene("Game");
-    }
 }
