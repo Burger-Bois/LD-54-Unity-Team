@@ -50,6 +50,7 @@ public class InventoryUI : MonoBehaviour
     {
         item.transform.localScale = new Vector3(3, 3, 3);
         item.GetComponent<SpriteRenderer>().sortingOrder = 7;
+        item.GetComponent<SpriteRenderer>().sprite = item.collectedSprite;
         
         foreach (var slot in invSlots)
         {
