@@ -42,8 +42,9 @@ public class InventoryController : MonoBehaviour
     {
         if (inventory.Count > 0)
         {
-            inventory.RemoveAt(inventory.Count - 1);
-            UI.RemoveItem();
+            var index = inventory.Count - 1;
+            inventory.RemoveAt(index);
+            UI.RemoveItem(index);
         }
     }
 

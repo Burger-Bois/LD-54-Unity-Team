@@ -65,9 +65,11 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void RemoveItem()
+    public void RemoveItem(int index)
     {
-        invSlots[invSlots.Count -1].hasItem = false;
-        Destroy(invSlots[invSlots.Count - 1].item);
+        GameObject item = invSlots[index].item;
+        invSlots[index].hasItem = false;
+        invSlots[index].item = null;
+        Destroy(item);
     }
 }
