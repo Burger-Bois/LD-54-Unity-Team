@@ -6,6 +6,7 @@ TagManager:
   tags:
   - collectable
   - Music
+  - DoubleBonusTimer
   layers:
   - Default
   - TransparentFX
