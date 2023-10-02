@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BonusTimer : MonoBehaviour
 {
-    public float timeLeft = 20;
+    public float timeLeft = 15;
     public bool isActive = false;
 
     public TextMeshProUGUI timerText;
@@ -28,10 +28,6 @@ public class BonusTimer : MonoBehaviour
                 timeLeft -= Time.deltaTime;
                 UpdateTimer(timeLeft);
             }
-            else
-            {
-                isActive = false;
-            }
         }
     }
 
@@ -42,6 +38,7 @@ public class BonusTimer : MonoBehaviour
         if (seconds < 0f)
         {
             seconds = 0;
+            isActive = false;
             gameObject.SetActive(false);
         }
 

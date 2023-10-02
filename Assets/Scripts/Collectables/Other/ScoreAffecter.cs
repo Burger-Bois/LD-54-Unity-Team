@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ScoreAffecter
 {
-    int calculateScoreBonus(int score);
+    int CalculateScoreBonus(int score);
 }

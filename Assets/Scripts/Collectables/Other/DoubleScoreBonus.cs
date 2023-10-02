@@ -7,21 +7,16 @@ public class DoubleScoreBonus : CollectableController, ScoreAffecter
 {
     private BonusTimer bonusTimer;
     
-    public float bonusTime = 20f;
+    public float bonusTime = 15f;
     
     private void Awake()
     {
-        bonusTimer = GameObject.Find("ScoreManager").GetComponent<ScoreManger>().bonusTimer;
+        bonusTimer = GameObject.Find("ScoreManager").GetComponent<ScoreManager>().bonusTimer;
     }
 
-    public int calculateScoreBonus(int initialScore)
+    public int CalculateScoreBonus(int initialScore)
     {
-        var bonus = 0;
-        if(bonusTimer.isActive)
-        {
-            bonus = initialScore;
-        }
-        return bonus;
+        return initialScore;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider)

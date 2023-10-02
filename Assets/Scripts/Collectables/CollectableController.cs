@@ -52,5 +52,10 @@ public class CollectableController : MonoBehaviour
         }
     }
 
+    public bool HasScoreAffector()
+    {
+        return (scoreAffecter != null);
+    }
+
 
 }

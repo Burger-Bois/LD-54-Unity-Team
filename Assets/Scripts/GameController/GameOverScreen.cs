@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     public TextMeshProUGUI totalScoreText,
+        bonusScoreText,
         diamondScoreText,
         rubyScoreText,
         emeraldScoreText,
@@ -15,7 +16,7 @@ public class GameOverScreen : MonoBehaviour
         rockScoreText;
 
 
-    public void Setup(int totalScore, int diamondCount, int rubyCount, int emeraldCount, int amethystCount,
+    public void Setup(int baseScore, int bonusScore, int diamondCount, int rubyCount, int emeraldCount, int amethystCount,
         int topazCount, int rockCount)
     {
         Time.timeScale = 0;
@@ -31,6 +32,19 @@ public class GameOverScreen : MonoBehaviour
         topazScoreText.text = BuildSubscoreText(new GameObject("TopazScoreObj", typeof(TopazController)), topazCount);
         rockScoreText.text = BuildSubscoreText(new GameObject("RockScoreObj", typeof(RockController)), rockCount);
 
+
+        if (bonusScore >= 0)
+        {
+            bonusScoreText.color = Color.green;
+        } 
+        else
+        {
+            bonusScoreText.color = Color.red;
+        }
+
+        bonusScoreText.text = bonusScore.ToString(); 
+
+        var totalScore = baseScore + bonusScore;
         totalScoreText.text = $"You Scored \n" +
                               $"{totalScore} \n" +
                               $" points";

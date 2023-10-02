@@ -82,9 +82,14 @@ public class SpawnManager : MonoBehaviour
 
     private GameObject GetItemToSpawn(int number)
     {
-        if (number <= 650)
+
+        if (number <= 20)
         {
             return spawnableObjects[6];
+        }
+        if (number <= 650)
+        {
+            return spawnableObjects[0];
         }
         if (number <= 800)
         {
