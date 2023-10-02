@@ -1,18 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class DoubleScoreBonus : CollectableController, ScoreAffecter
 {
-
-    [SerializeField] public BonusTimer timer;
-    public float bonusTime = 20f;
     private BonusTimer bonusTimer;
-
-    void Start()
-    {
-        
-    }
     
+    public float bonusTime = 20f;
+    
+    private void Awake()
+    {
+        bonusTimer = GameObject.Find("ScoreManager").GetComponent<ScoreManger>().bonusTimer;
+    }
 
     public int calculateScoreBonus(int initialScore)
     {
@@ -30,6 +30,7 @@ public class DoubleScoreBonus : CollectableController, ScoreAffecter
 
         if (collider.gameObject.name.Equals("Player"))
         {
+            Destroy(gameObject);
             bonusTimer.Setup(bonusTime);
         }
     }

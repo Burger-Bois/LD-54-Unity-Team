@@ -9,8 +9,6 @@ namespace Assets.Scripts.GameController
 {
     class GameController : MonoBehaviour
     {
-
-
         [SerializeField] private float moveDuration = 0.3f;
 
         // The size of the grid

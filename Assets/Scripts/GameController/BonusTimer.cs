@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class BonusTimer : MonoBehaviour
     {
         timeLeft = startTime;
         gameObject.SetActive(true);
+        isActive = true;
     }
 
 
@@ -35,7 +37,6 @@ public class BonusTimer : MonoBehaviour
 
     private void UpdateTimer(float currentTime)
     {
-
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
         if (seconds < 0f)
@@ -43,8 +44,7 @@ public class BonusTimer : MonoBehaviour
             seconds = 0;
             gameObject.SetActive(false);
         }
+
         timerText.text = string.Format("{00}", seconds);
-
-
     }
 }
