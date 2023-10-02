@@ -6,7 +6,7 @@ public class BombController : CollectableController
 { 
     private void Awake()
     {
-        value = 25;
+        value = 0;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider)
@@ -17,7 +17,7 @@ public class BombController : CollectableController
         {
             collider.gameObject.GetComponentInChildren<InventoryController>().RemoveItem();
             isCollected = true;
-            GameObject.Find("AudioManager").GetComponent<AudioSource>().Play();
+            GameObject.Find("BombSound").GetComponent<AudioSource>().Play();
             Destroy(gameObject);
         }
     }

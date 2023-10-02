@@ -61,6 +61,10 @@ public class InventoryController : MonoBehaviour
                 score += item.scoreAffecter.CalculateScoreBonus(item.value);
             }
         }
+
+        return score;
+    }
+
     public void RemoveItem()
     {
         if (inventory.Count > 0)

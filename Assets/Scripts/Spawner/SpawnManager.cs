@@ -86,9 +86,13 @@ public class SpawnManager : MonoBehaviour
 
         if (number <= 10)
         {
+            return spawnableObjects[7];
+        }
+        if (number <= 30)
+        {
             return spawnableObjects[6];
         }
-        if (number <= 650)
+        if (number <= 660)
         {
             return spawnableObjects[0];
         }
