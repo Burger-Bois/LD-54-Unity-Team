@@ -10,7 +10,6 @@ public class InventoryController : MonoBehaviour
     private List<CollectableController> inventory = new();
     private int score = 0;
    
-    public bool isFull = false;
     public GameOverScreen gameOverScreen;
 
     private void Awake()
@@ -26,15 +25,15 @@ public class InventoryController : MonoBehaviour
 
         if (inventory.Count == inventory.Capacity)
         {
-            isFull = true;
-        }
-    }
+            var diamondCount = inventory.FindAll(c => c is DiamondController).Count;
+            var rubyCount = inventory.FindAll(c => c is RubyController).Count;
+            var emeraldCount = inventory.FindAll(c => c is EmeraldController).Count;
+            var amethystCount = inventory.FindAll(c => c is AmethystController).Count;
+            var topazCount = inventory.FindAll(c => c is TopazController).Count;
+            var rockCount = inventory.FindAll(c => c is RockController).Count;
 
-    private void Update()
-    {
-        if (isFull)
-        {
-            gameOverScreen.Setup(GetScore());
+
+            gameOverScreen.Setup(GetScore(), diamondCount, rubyCount, emeraldCount, amethystCount, topazCount, rockCount);
         }
     }
 
