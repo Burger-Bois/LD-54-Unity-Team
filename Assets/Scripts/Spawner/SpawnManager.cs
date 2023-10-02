@@ -83,7 +83,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject GetItemToSpawn(int number)
     {
 
-        if (number <= 20)
+        if (number <= 10)
         {
             return spawnableObjects[6];
         }

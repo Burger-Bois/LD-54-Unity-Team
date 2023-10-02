@@ -26,6 +26,7 @@ public class DoubleScoreBonus : CollectableController, ScoreAffecter
         if (collider.gameObject.name.Equals("Player"))
         {
             Destroy(gameObject);
+            GameObject.Find("CoinSound").GetComponent<AudioSource>().Play();
             bonusTimer.Setup(bonusTime);
         }
     }
