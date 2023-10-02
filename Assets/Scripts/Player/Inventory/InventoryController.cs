@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class InventoryController : MonoBehaviour
 {
@@ -34,6 +35,15 @@ public class InventoryController : MonoBehaviour
 
 
             gameOverScreen.Setup(GetScore(), diamondCount, rubyCount, emeraldCount, amethystCount, topazCount, rockCount);
+        }
+    }
+
+    public void RemoveItem()
+    {
+        if (inventory.Count > 0)
+        {
+            inventory.RemoveAt(inventory.Count - 1);
+            UI.RemoveItem();
         }
     }
 

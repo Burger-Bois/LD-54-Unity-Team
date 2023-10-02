@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
         spawnPoint10,
         spawnPoint11;
 
-    [SerializeField] private GameObject rock, ruby, emerald, amethyst, diamond, topaz;
+    [SerializeField] private GameObject rock, ruby, emerald, amethyst, diamond, topaz, bomb;
 
     private List<SpawnPoint> spawnPoints = new ();
     private List<GameObject> spawnableObjects = new();
@@ -46,6 +46,7 @@ public class SpawnManager : MonoBehaviour
         spawnableObjects.Add(emerald);
         spawnableObjects.Add(ruby);
         spawnableObjects.Add(diamond);
+        spawnableObjects.Add(bomb);
         
     }
 
@@ -83,7 +84,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (number <= 650)
         {
-            return spawnableObjects[0];
+            return spawnableObjects[6];
         }
         if (number <= 800)
         {
