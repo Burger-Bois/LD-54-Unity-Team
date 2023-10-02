@@ -58,9 +58,18 @@ public class InventoryUI : MonoBehaviour
             {
                 item.transform.position = slot.transform.position;
                 slot.hasItem = true;
+                slot.item = item.gameObject;
                 break;
             } 
             
         }
+    }
+
+    public void RemoveItem(int index)
+    {
+        GameObject item = invSlots[index].item;
+        invSlots[index].hasItem = false;
+        invSlots[index].item = null;
+        Destroy(item);
     }
 }

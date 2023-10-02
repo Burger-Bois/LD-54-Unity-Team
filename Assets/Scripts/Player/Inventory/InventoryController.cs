@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class InventoryController : MonoBehaviour
 {
@@ -60,6 +61,18 @@ public class InventoryController : MonoBehaviour
                 score += item.scoreAffecter.CalculateScoreBonus(item.value);
             }
         }
+
         return score;
     }
+
+    public void RemoveItem()
+    {
+        if (inventory.Count > 0)
+        {
+            var index = inventory.Count - 1;
+            inventory.RemoveAt(index);
+            UI.RemoveItem(index);
+        }
+    }
+
 }
