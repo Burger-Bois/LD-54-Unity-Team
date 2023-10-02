@@ -8,9 +8,9 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private InventoryUI UI;
     
     private List<CollectableController> inventory = new();
-    private int score = 0;
    
     public GameOverScreen gameOverScreen;
+    public ScoreManager scoreManager;
 
     private void Awake()
     {
@@ -19,9 +19,13 @@ public class InventoryController : MonoBehaviour
 
     public void AddItem(CollectableController item)
     {
+
+        if (scoreManager.GetComponent<ScoreManager>().bonusTimer.isActive)
+        {
+            item.scoreAffecter = new GameObject("DoubleScoreBonus-" + item.name, typeof(DoubleScoreBonus)).GetComponent<DoubleScoreBonus>();
+        }
         inventory.Add(item);
         UI.StoreItem(item);
-        score += item.gameObject.GetComponent<CollectableController>().value;
 
         if (inventory.Count == inventory.Capacity)
         {
@@ -33,12 +37,29 @@ public class InventoryController : MonoBehaviour
             var rockCount = inventory.FindAll(c => c is RockController).Count;
 
 
-            gameOverScreen.Setup(GetScore(), diamondCount, rubyCount, emeraldCount, amethystCount, topazCount, rockCount);
+            gameOverScreen.Setup(GetBaseScore(), GetBonusScore(), diamondCount, rubyCount, emeraldCount, amethystCount, topazCount, rockCount);
         }
     }
 
-    public int GetScore()
+    public int GetBaseScore()
     {
+        var score = 0;
+        foreach(CollectableController item in inventory) {
+            score += item.value;
+        }
+        return score;
+    }
+
+    public int GetBonusScore()
+    {
+        var score = 0;
+        foreach (CollectableController item in inventory)
+        {
+            if (item.HasScoreAffector())
+            {
+                score += item.scoreAffecter.CalculateScoreBonus(item.value);
+            }
+        }
         return score;
     }
 }

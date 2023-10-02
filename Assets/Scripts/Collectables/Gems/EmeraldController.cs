@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EmeraldController : CollectableController
 {
+
     private void Awake()
     {
         value = 10;
