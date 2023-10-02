@@ -9,6 +9,7 @@ public class AmethystController : CollectableController
     private void Awake()
     {
         value = 5;
+
     }
 
     protected override void OnTriggerEnter2D(Collider2D collider)

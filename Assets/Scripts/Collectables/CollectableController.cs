@@ -9,6 +9,7 @@ public class CollectableController : MonoBehaviour
     public bool isMoving = false;
     public bool isCollected = false;
     public int value = 0;
+    public ScoreAffecter scoreAffecter;
 
     public IEnumerator Move(float moveDuration, float gridSize)
     {
@@ -50,4 +51,6 @@ public class CollectableController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }
